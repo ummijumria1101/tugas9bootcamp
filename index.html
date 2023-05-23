@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
 <body>
-    <button onclick="showList()">Show List</button>
+    <div class="bg-gray-400 h-screen">
+        <div class="">
+            <p class="text-center font-semibold text-xl pt-4">Ini Adalah Tugas 9</p>
+            <p class="text-center font-semibold text-xl pt-4">Klik Button dibawah untuk memunculkan list dari json</p>
+            <div class="item-center bg-gray-600 mx-10 p-2 rounded-lg text-center text-white text-xl">
+                <button onclick="showList()"><b>Show List</b></button>
+            </div>
+            
+        </div>
+
+    </div>
+    
     
 
     <script>
@@ -21,7 +33,9 @@
 
                 // .then(data => console.log(data))
             function showList(){
-                fetch('~/students.json')
+                fetch('./students.json', {
+                headers: {'Content-Type': 'application/json'}
+            })
                     .then(response => response.json())
                     .then(data => createList(data));
             }
